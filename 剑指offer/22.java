@@ -14,7 +14,7 @@ public class Solution {
 		ListNode nodeA = head;
 		ListNode nodeB = head;
 		for(int i=0; i<k-1; i++){
-			if(nodeA.next != null)
+			if(nodeA.next != null) //保证链表有k个节点数
 				nodeA = nodeA.next;
 			else
 				return null;
@@ -23,5 +23,6 @@ public class Solution {
 			nodeA = nodeA.next;
 			nodeB = nodeB.next;
 		}
+		return nodeB;
     }
 }
