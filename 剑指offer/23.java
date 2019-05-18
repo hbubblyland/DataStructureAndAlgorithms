@@ -9,7 +9,7 @@
 }
 */
 public class Solution {
-
+	//方法一
     public ListNode EntryNodeOfLoop(ListNode pHead){
 		ListNode meetingNode = FindMeetingNode(pHead);
 		if(meetingNode == null)
@@ -52,5 +52,27 @@ public class Solution {
 				fast = fast.next;
 		}
 		return null;
+	}
+	
+	//方法二
+	public ListNode EntryNodeOfLoop(ListNode pHead){
+		ListNode p1 = pHead.next;
+		ListNode p2 = pHead.next.next;
+		if(pHead == null || p1 == null || p2 == null)
+			return null;
+		while(p1 != p2){
+			if(p1.next != null && p2.next.next != null){
+				p1 = p1.next;
+				p2 = p2.next.next;
+			}else{
+				return null;
+			}
+		}
+		p2 = pHead;
+		while(p1 != p2){
+			p1 = p1.next;
+			p2 = p2.next;
+		}
+		return p1;
 	}
 }
