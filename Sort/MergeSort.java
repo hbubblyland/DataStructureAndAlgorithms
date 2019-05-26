@@ -8,6 +8,16 @@ public class MergeSort{
 		merge(array, low, mid, high);
 	}
 	
+	//非递归
+	public void mergeSort1(int array[]){
+		for(int i=1; i<array.length; i*=2){
+			for(int j=0; j<=array.length-2*i+1; j += i*2)
+				merge(array, j, j+i-1, j+2*i-1);
+			if(j < array.length - i+1)//保证那些长度不足的子序列也能merge
+				merge(array, j, j+i-1, array.length-1);
+		}
+	}
+	
 	public void merge(int array[], int low, int mid, int high){
 		int temp[] = new int[high-low+1];
 		int i = low;
