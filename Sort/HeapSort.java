@@ -3,7 +3,7 @@ public class HeapSort{
 		for(int i=array.length/2-1; i>=0; i--){
 			adjustHeap(array, i, array.length-1);
 		}
-		for(int j=array.length-1; j>=0; j--){
+		for(int j=array.length-1; j>0; j--){
 			int temp = array[0];
 			array[0] = array[j];
 			array[j] = temp;
