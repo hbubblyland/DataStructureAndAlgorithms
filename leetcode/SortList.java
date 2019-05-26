@@ -91,7 +91,7 @@ j ++
 
 	*/
 	public ListNode sortList(ListNode head){
-		quickSort(head, null)
+		quickSort(head, null);
 		return head;
 	}
 	public void quickSort(ListNode head, ListNode end){
